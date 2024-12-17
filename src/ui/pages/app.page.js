@@ -1,5 +1,3 @@
-import { test } from '@playwright/test';
-
 import { BasePage } from './base.page';
 import { AuthorizationPage, MyWishesPage } from './index';
 import { Header } from '../elements/index';
@@ -19,7 +17,7 @@ export class App extends BasePage {
   }
 
   async open() {
-    await this.page.goto('/');
+    await this.page.goto(process.env.BASE_URL);
   }
 
   async openAuthorizationPage() {
