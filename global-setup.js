@@ -25,7 +25,7 @@ async function globalSetup(config) {
       localStorage.setItem('ohmywishes', `{"isDrawBannerClosed":true}`);
       });
   */
-  await app.header.myWishesMenu.click();
+  //await app.header.myWishesMenu.click();
   await app.page
     .locator('h1', { name: 'Новогодний розыгрыш' })
     .waitFor({ state: 'visible' });
