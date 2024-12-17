@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2869","Авторизация с некорректным паролем @UI","ui","Tue Dec 17 14:18:48 GMT 2024","failed","Tue Dec 17 14:18:51 GMT 2024","Авторизация по электронной почте","ui/login.spec.js","",""
+"","30428","Пользователь может добавить желание только с названием @UI","ui","Tue Dec 17 14:21:30 GMT 2024","broken","Tue Dec 17 14:22:01 GMT 2024","Добавление желания","ui/mywishes.spec.js","",""
+"","30419","Нельзя добавить желание без названия @UI","ui","Tue Dec 17 14:23:05 GMT 2024","broken","Tue Dec 17 14:23:36 GMT 2024","Добавление желания","ui/mywishes.spec.js","",""
+"","30431","Пользователь может добавить желание @UI","ui","Tue Dec 17 14:19:55 GMT 2024","broken","Tue Dec 17 14:20:26 GMT 2024","Добавление желания","ui/mywishes.spec.js","",""
+"","9995","Авторизация с валидными почтой и паролем @UI","ui","Tue Dec 17 14:18:29 GMT 2024","failed","Tue Dec 17 14:18:39 GMT 2024","Авторизация по электронной почте","ui/login.spec.js","",""
