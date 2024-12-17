@@ -3,7 +3,7 @@ import { App } from './src/ui/pages/index';
 const { chromium } = require('@playwright/test');
 
 async function globalSetup(config) {
-  const { storageState, baseURL } = config.projects[0].use;
+  const { storageState, baseURL } = config.projects[1].use;
   const browser = await chromium.launch();
   const page = await browser.newPage({ baseURL });
   console.log('page  = ' + `${baseURL}`);

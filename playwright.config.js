@@ -39,7 +39,9 @@ module.exports = defineConfig({
     },
     {
       name: 'api',
-      use: {},
+      use: {
+        baseURL: process.env.BASE_URL,
+      },
       testDir: 'tests/api',
     },
   ],
