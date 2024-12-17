@@ -17,7 +17,7 @@ export class App extends BasePage {
   }
 
   async open() {
-    await this.page.goto(process.env.BASE_URL);
+    await this.page.goto('/');
   }
 
   async openAuthorizationPage() {
