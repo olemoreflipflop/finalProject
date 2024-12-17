@@ -7,9 +7,8 @@ async function globalSetup(config) {
   const browser = await chromium.launch();
   const page = await browser.newPage({ baseURL });
   const app = new App(page);
-  console.log(baseURL);
   console.log(page.url());
-  await page.goto(baseURL);
+  await page.goto('https://ohmywishes.com');
   await app.openAuthorizationPage();
   await app.page
     .context()
