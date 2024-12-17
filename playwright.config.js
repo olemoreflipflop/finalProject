@@ -21,9 +21,9 @@ module.exports = defineConfig({
   globalSetup: require.resolve('./global-setup.js'),
   use: {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'retry-with-trace',
     screenshot: 'only-on-failure',
-    video: 'on',
+    video: 'off',
   },
   expect: {
     timeout: 7000,
