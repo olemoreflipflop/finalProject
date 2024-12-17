@@ -33,10 +33,12 @@ test.describe('/auth/login', () => {
       credentials.password,
     );
 
-    const validate = ajv.compile(schema);
-    expect(validate(response.body)).toBe(true);
-    expect(response.status).toBe(201);
-    expect(response.body.user.email).toEqual(credentials.email);
+    await test.step('Пользователь авторизован, в response корректные данные пользователя', async () => {
+      const validate = ajv.compile(schema);
+      expect(validate(response.body)).toBe(true);
+      expect(response.status).toBe(201);
+      expect(response.body.user.email).toEqual(credentials.email);
+    });
   });
 
   test('Введен неверный email (400)', async ({}) => {
@@ -49,8 +51,10 @@ test.describe('/auth/login', () => {
       credentials.password,
     );
 
-    expect(response.status).toBe(400);
-    expect(response.body.message).toEqual('Введен неверный email или пароль');
+    await test.step('Получили статус 400 и ошибку', async () => {
+      expect(response.status).toBe(400);
+      expect(response.body.message).toEqual('Введен неверный email или пароль');
+    });
   });
 
   test('Введен неверный пароль (400)', async ({}) => {
@@ -63,8 +67,10 @@ test.describe('/auth/login', () => {
       credentials.password,
     );
 
-    expect(response.status).toBe(400);
-    expect(response.body.message).toEqual('Введен неверный email или пароль');
+    await test.step('Получили статус 400 и ошибку', async () => {
+      expect(response.status).toBe(400);
+      expect(response.body.message).toEqual('Введен неверный email или пароль');
+    });
   });
 
   test('Введен username вместо email-a (400)', async ({}) => {
@@ -77,19 +83,23 @@ test.describe('/auth/login', () => {
       credentials.password,
     );
 
-    expect(response.status).toBe(400);
-    expect(response.body.message).toEqual('Submitted fields are invalid');
-    expect(response.body.details).toMatchObject({
-      email: 'This value is not a valid email address.',
+    await test.step('Получили статус 400 и ошибку о невалидном email', async () => {
+      expect(response.status).toBe(400);
+      expect(response.body.message).toEqual('Submitted fields are invalid');
+      expect(response.body.details).toMatchObject({
+        email: 'This value is not a valid email address.',
+      });
     });
   });
 
   test('Отсутствует payload с credentials (400)', async ({}) => {
     await allure.severity(Severity.NORMAL);
     const response = await client.apiContext.post(client.loginService.path);
-    const body = await response.json();
 
-    expect(response.status()).toBe(400);
-    expect(body.message).toEqual('Form submit is required');
+    await test.step('Получили статус 400 и ошибку о отсутствии body', async () => {
+      const body = await response.json();
+      expect(response.status()).toBe(400);
+      expect(body.message).toEqual('Form submit is required');
+    });
   });
 });
