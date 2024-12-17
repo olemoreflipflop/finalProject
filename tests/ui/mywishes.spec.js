@@ -19,6 +19,7 @@ test.beforeAll('', () => {
 test.describe('Добавление желания', () => {
   test.beforeAll('', () => {
     allure.feature('Желания');
+    allure.severity('critical');
   });
 
   test('Пользователь может добавить желание @UI', async ({ app }) => {
@@ -48,6 +49,8 @@ test.describe('Добавление желания', () => {
   });
 
   test('Нельзя добавить желание без названия @UI', async ({ app }) => {
+    allure.severity('normal');
+
     const wish = new WishBuilder().generate();
     await app.myWishesPage.createNewWish(wish);
     await test.step('Форма создания осталась открытой, желание не создано', async () => {

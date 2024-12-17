@@ -92,7 +92,7 @@ test.describe('Доступ к странице авторизации', () => {
   });
 
   test('Редирект со страницы "Мои желания" @UI', async ({ baseApp }) => {
-    allure.severity('critical');
+    allure.severity('normal');
 
     const app = baseApp;
     await app.openAuthorizationPage();
