@@ -1,12 +1,11 @@
 import { test } from '@playwright/test';
 import { BasePage } from './base.page';
-import { WishModal, WishesListModal } from '../elements/index';
+import { WishModal } from '../elements/index';
 
 export class MyWishesPage extends BasePage {
   constructor(page) {
     super(page);
     this.wishModal = new WishModal(page);
-    this.wishesListModal = new WishesListModal(page);
     this.createNewWishButton = this.page.locator('button', {
       hasText: 'Загадать желание',
     });
