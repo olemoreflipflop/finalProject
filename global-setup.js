@@ -12,25 +12,11 @@ async function globalSetup(config) {
   await app.page
     .context()
     .storageState({ path: './unauthSessionStorage.json' });
-
   await app.authorizationPage.loginUsingEmail(
     process.env.USER_EMAIL,
     process.env.USER_PASSWORD,
   );
-  // TODO: Заменить вынужденное ожидание всплывабщего окна на UI, тк запись параметра ohmywishes: {"isDrawBannerClosed":true}
-  //по каким-то причинам не срабатывает - необходимо разобраться
-  /*   
-      await baseApp.page.evaluate(() => {
-      localStorage.setItem('ohmywishes', `{"isDrawBannerClosed":true}`);
-      });
-  */
   await app.header.myWishesMenu.click();
-
-  // await app.page
-  //   .locator('h1', { name: 'Новогодний розыгрыш' })
-  //   .waitFor({ state: 'visible' });
-  // await app.page.getByText('Закрыть').click();
-
   await app.page.context().storageState({ path: storageState });
   await browser.close();
 }
