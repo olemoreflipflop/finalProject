@@ -20,11 +20,10 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   globalSetup: require.resolve('./global-setup.js'),
   use: {
-    storageState: 'sessionStorage.json',
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+    video: 'on',
   },
   expect: {
     timeout: 7000,
@@ -34,14 +33,15 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'ui',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: process.env.BASE_URL,
+        storageState: 'sessionStorage.json',
+      },
       testDir: 'tests/ui',
     },
     {
       name: 'api',
-      use: {
-        baseURL: process.env.BASE_URL,
-      },
       testDir: 'tests/api',
     },
   ],
