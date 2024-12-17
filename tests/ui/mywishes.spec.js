@@ -22,7 +22,7 @@ test.describe('Добавление желания', () => {
     allure.severity('critical');
   });
 
-  test('Пользователь может добавить желание @UI', async ({ app }) => {
+  test('Пользователь может добавить желание', async ({ app }) => {
     const wish = new WishBuilder()
       .addTitle()
       .addDescription()
@@ -37,7 +37,7 @@ test.describe('Добавление желания', () => {
     });
   });
 
-  test('Пользователь может добавить желание только с названием @UI', async ({
+  test('Пользователь может добавить желание только с названием', async ({
     app,
   }) => {
     const wish = new WishBuilder().addTitle().generate();
@@ -48,7 +48,7 @@ test.describe('Добавление желания', () => {
     });
   });
 
-  test('Нельзя добавить желание без названия @UI', async ({ app }) => {
+  test('Нельзя добавить желание без названия', async ({ app }) => {
     allure.severity('normal');
 
     const wish = new WishBuilder().generate();

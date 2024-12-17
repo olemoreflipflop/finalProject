@@ -1,5 +1,6 @@
 import { expect } from '@playwright/test';
 import * as allure from 'allure-js-commons';
+import { Severity } from 'allure-js-commons';
 import { faker } from '@faker-js/faker';
 import { test as base } from '../../src/ui/fixtures/app.fixture';
 
@@ -11,20 +12,20 @@ const test = base.extend({
   },
 });
 
-test.beforeAll('', () => {
-  allure.epic('Авторизация');
-  allure.owner('Olga Leonova');
+test.beforeAll('', async () => {
+  await allure.epic('Авторизация');
+  await allure.owner('Olga Leonova');
 });
 
 test.use({ storageState: 'unauthSessionStorage.json' });
 
 test.describe('Авторизация по электронной почте', () => {
-  test.beforeAll('', () => {
-    allure.feature('Авторизация по электронной почте');
-    allure.severity('blocker');
+  test.beforeAll('', async () => {
+    await allure.feature('Авторизация по электронной почте');
+    await allure.severity(Severity.BLOCKER);
   });
 
-  test('Авторизация с валидными почтой и паролем @UI', async ({ app }) => {
+  test('Авторизация с валидными почтой и паролем', async ({ app }) => {
     await test.step('Сабмит формы логина с валидными почтой и паролем', async () => {
       await app.authorizationPage.loginUsingEmail(
         process.env.USER_EMAIL,
@@ -38,7 +39,7 @@ test.describe('Авторизация по электронной почте', (
     });
   });
 
-  test('Неуспешная авторизация с некорректным паролем @UI', async ({ app }) => {
+  test('Неуспешная авторизация с некорректным паролем', async ({ app }) => {
     await test.step('Сабмит формы логина с валидной почтой и некорректным паролем', async () => {
       await app.authorizationPage.loginUsingEmail(
         process.env.USER_EMAIL,
@@ -54,7 +55,7 @@ test.describe('Авторизация по электронной почте', (
     });
   });
 
-  test('Неуспешная авторизация с некорректной почтой @UI', async ({ app }) => {
+  test('Неуспешная авторизация с некорректной почтой', async ({ app }) => {
     await test.step('Сабмит формы логина с некорректной почтой и валидным паролем', async () => {
       await app.authorizationPage.loginUsingEmail(
         faker.internet.email(),
@@ -72,15 +73,16 @@ test.describe('Авторизация по электронной почте', (
 });
 
 test.describe('Доступ к странице авторизации', () => {
-  test.beforeAll('', () => {
-    allure.feature('Страница авторизации');
+  test.beforeAll('', async () => {
+    await allure.feature('Страница авторизации');
   });
 
-  test('Переход по кнопке "Войти" @UI', async ({ baseApp }) => {
-    allure.severity('blocker');
+  test('Переход по кнопке "Войти"', async ({ baseApp }) => {
+    await allure.severity(Severity.BLOCKER);
     const app = baseApp;
-    await app.openAuthorizationPage();
-
+    await test.step('Клик на кнопку "Войти"', async () => {
+      await app.openAuthorizationPage();
+    });
     await test.step('Пользователь видит страницу авторизации', async () => {
       await expect(
         app.authorizationPage.emailAuthorizationButton,
@@ -91,11 +93,12 @@ test.describe('Доступ к странице авторизации', () => {
     });
   });
 
-  test('Редирект со страницы "Мои желания" @UI', async ({ baseApp }) => {
-    allure.severity('normal');
+  test('Редирект со страницы "Мои желания"', async ({ baseApp }) => {
+    await allure.severity(Severity.NORMAL);
 
     const app = baseApp;
-    await app.openAuthorizationPage();
+    await app.header.openMyWishes();
+
     await test.step('Пользователь видит страницу авторизации', async () => {
       await expect(
         app.authorizationPage.emailAuthorizationButton,
