@@ -37,11 +37,13 @@ Ohmywishes — бесплатный сервис вишлистов. Здесь 
 </p>
 
 Тесты написаны на языке <code>JavaScript</code> с использованием фреймворка для автоматизации тестирования <code>[Playwright](https://playwright.dev)</code>. 
-Для написания UI-тестов был использован паттерн Page Object, для API-тестов было использовано разделение api приложения на отдельные сервисы. Для тестовых данных была использована генерация данных с помощью <code>[faker-js](https://fakerjs.dev)</code> и паттерна Builder.
+Для написания UI-тестов был использован паттерн Page Object, для API-тестов было использовано разделение api приложения на отдельные сервисы. 
+Для валидации json схемы была использована библиотека <code>[AJV](https://ajv.js.org/)</code>.
+Для генерации тестовых данных была использована библиотека <code>[faker-js](https://fakerjs.dev)</code> и паттерн Builder.
 
 Для организации удалённого запуска тестов предусмотрены интеграции с <code>[Jenkins](https://www.jenkins.io/)</code> и <code>[GitHub Actions](https://docs.github.com/en/actions)</code>. 
-После запуска тестов генерируется отчёт Allure и отправляется в <code>[Allure TestOps](https://qameta.io/)</code> для отображения результатов прогона.
-Отчет с результатами отправляется ботом в специальный чат <code>Telegram</code>. Для уведомлений в Telegram используется библиотека <code>[allure-notifications](https://github.com/qa-guru/allure-notifications)</code>.
+После запуска тестов генерируется отчёт <code>[Allure](https://allurereport.org/)</code> и отправляется в <code>[Allure TestOps](https://qameta.io/)</code> для отображения результатов прогона.
+Отчет с результатами отправляется ботом в специальный чат <code>[Telegram](https://web.telegram.org)</code>. Для уведомлений в Telegram используется библиотека <code>[allure-notifications](https://github.com/qa-guru/allure-notifications)</code>.
 
 ## Реализованные проверки
 ### UI
@@ -112,7 +114,7 @@ npm run runUiTests
 
 HTML-отчеты Playwright генерируются автоматически после прогона тестов. Для просмотра данного отчета следует использовать команду:
 ```
- npx playwright show-report
+npx playwright show-report
 ```
 Для генерации и просмотра отчета Allure по результатам прогона используйте команду:
 ```
@@ -135,7 +137,7 @@ npm run allure
 </p>
 
 ## Уведомления в Telegram
-После завершения сборки в Jenkins, бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом
+После завершения сборки в Jenkins, бот, созданный в <code>Telegram</code>, автоматически обрабатывает результаты и отправляет сообщение с отчетом
 о прогоне тестов в указанный чат.
 <p align="center">
 <img alt="telegramNotification" src="media/telegramNotification.png"  >
