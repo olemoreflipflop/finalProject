@@ -4,8 +4,7 @@
   "description": "Final project after QA Guru course",
   "main": "index.js",
   "scripts": {
-    "allureGenerate": "allure generate --clean",
-    "allureOpen": "allure open",
+    "allure": "allure generate --clean && allure open",
     "uiMode": "npx playwright test --ui",
     "test": "npx playwright test",
     "testHeaded": "npx playwright test --headed",
