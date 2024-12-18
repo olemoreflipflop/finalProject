@@ -5,8 +5,14 @@
 </p>
 
 ## Содержание
-+ Описание
-+ Технологии и инструменты
++ [Описание](#описание)
++ [Технологии и инструменты](#технологии-и-инструменты)
++ [Реализованные проверки](#реализованные-проверки)
++ [Запуск тестов](#запуск-тестов)
++ [Пример выполнения теста](#пример-выполнения-теста)
++ [Интеграция с Allure](#интеграция-с-allure)
++ [Интеграция с Allure Testops](#интеграция-с-allure-testops)
++ [Уведомления в Telegram](#уведомления-в-telegram)
 
 ## Описание
 Ohmywishes — бесплатный сервис вишлистов. Здесь вы можете создавать собственные списки желаний подарков и следить за мечтами друзей.
@@ -19,14 +25,15 @@ Ohmywishes — бесплатный сервис вишлистов. Здесь 
 В этом проекте используются следующие технологии и инструменты:
 <p align="center">
 <img src="https://github.com/devicons/devicon/blob/master/icons/playwright/playwright-original.svg" title="Playwright" alt="Playwright" width="40" height="40"/>
-<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2hhc3JqaDgyN3JibTdnaG5najE5bGthcWw3YWpiZmtjNDNyNW9leCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SvFocn0wNMx0iv2rYz/giphy.gif" width="40"/>
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2hhc3JqaDgyN3JibTdnaG5najE5bGthcWw3YWpiZmtjNDNyNW9leCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SvFocn0wNMx0iv2rYz/giphy.gif" title="Playwright GIF" alt="Playwright GIF" width="40"/>
 <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" alt="Git" width="40" height="40"/>
-<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWVleDFxZzBoZThhd2dxZXI3MXFycm82MTBiczJnYmdqaDJ0eXRhbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ZcdZ7ldgeIhfesqA6E/giphy.gif" width="40" height="40"/>
-<img src="https://softfinder.ru/upload/styles/logo/public/logo/logo-2605.png?itok=vqVq1c7j" width="40" height="40"/>
-<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDdrcXF4am14YWVxeGp4MnJmMThjOThpcjQ5Zm50bXc3dHRyaXY5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/du3J3cXyzhj75IOgvA/giphy.gif" title="GitHub" alt="GitHub" width="40" height="40"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" title="GitHub" alt="GitHub" width="40" height="40"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" title="Telegram" alt=Telegram" width="40" height="40"/>
+<img src="https://softfinder.ru/upload/styles/logo/public/logo/logo-2605.png?itok=vqVq1c7j" title="Allure Testops" alt="Allure Testops" width="40" height="40"/>
 <img src="https://github.com/allure-framework/allure2/blob/main/.idea/icon.png" title="Allure Report" alt="Allure Report" width="40" height="40"/>
 <img src="https://github.com/devicons/devicon/blob/master/icons/jenkins/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="40" height="40"/>
-<img src="https://fakerjs.dev/logo.svg" width="40" height="40"/>
+<img src="https://fakerjs.dev/logo.svg" title="Faker.js" alt="Faker.js" width="40" height="40"/>
+<img src="https://ajv.js.org/img/ajv.svg" title="ajv.js" alt="ajv.js" width="40" height="40"/>
 </p>
 
 Тесты написаны на языке <code>JavaScript</code> с использованием фреймворка для автоматизации тестирования <code>[Playwright](https://playwright.dev)</code>. 
@@ -112,22 +119,24 @@ HTML-отчеты Playwright генерируются автоматически
 npm run allure
 ```
 
-## <img src="https://github.com/allure-framework/allure2/blob/main/.idea/icon.png" title="Allure Report" alt="Allure Report" width="40" height="40"/> </a> Интеграция с <a target="_blank" href="https://jenkins.autotests.cloud/"> Allure </a>
+## Пример выполнения теста
+<p align="center">
+<img alt="createWishTestGif" src="media/create_wish.gif"  >
+</p>
+
+## Интеграция с Allure
 <p align="center">
 <img title="Allure Report" src="media/allureReport.png">
 </p>
 
-## <img src="https://softfinder.ru/upload/styles/logo/public/logo/logo-2605.png?itok=vqVq1c7j" width="40" height="40"/> Интеграция с <a target="_blank" href="https://allure.autotests.cloud/launch/43117/"> Allure TestOps </a>
+## Интеграция с Allure TestOps
 <p align="center">
 <img title="Allure TestOps Report" src="media/allureTestopsReport.png">
 </p>
 
-## Пример выполнения теста
-
-
-## <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWVleDFxZzBoZThhd2dxZXI3MXFycm82MTBiczJnYmdqaDJ0eXRhbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ZcdZ7ldgeIhfesqA6E/giphy.gif" width="40" height="40"/> Уведомления в Telegram
+## Уведомления в Telegram
 После завершения сборки в Jenkins, бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом
 о прогоне тестов в указанный чат.
 <p align="center">
-<img alt="createWishTestGif" src="media/create_wish.gif"  >
+<img alt="telegramNotification" src="media/telegramNotification.png"  >
 </p>
