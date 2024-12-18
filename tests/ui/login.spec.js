@@ -22,10 +22,10 @@ test.use({ storageState: 'unauthSessionStorage.json' });
 test.describe('Авторизация по электронной почте', () => {
   test.beforeAll('', async () => {
     await allure.feature('Авторизация по электронной почте');
-    await allure.severity(Severity.BLOCKER);
   });
 
   test('Авторизация с валидными почтой и паролем', async ({ app }) => {
+    await allure.severity(Severity.BLOCKER);
     await test.step('Сабмит формы логина с валидными почтой и паролем', async () => {
       await app.authorizationPage.loginUsingEmail(
         process.env.USER_EMAIL,
@@ -40,6 +40,7 @@ test.describe('Авторизация по электронной почте', (
   });
 
   test('Неуспешная авторизация с некорректным паролем', async ({ app }) => {
+    await allure.severity(Severity.BLOCKER);
     await test.step('Сабмит формы логина с валидной почтой и некорректным паролем', async () => {
       await app.authorizationPage.loginUsingEmail(
         process.env.USER_EMAIL,
@@ -56,6 +57,7 @@ test.describe('Авторизация по электронной почте', (
   });
 
   test('Неуспешная авторизация с некорректной почтой', async ({ app }) => {
+    await allure.severity(Severity.BLOCKER);
     await test.step('Сабмит формы логина с некорректной почтой и валидным паролем', async () => {
       await app.authorizationPage.loginUsingEmail(
         faker.internet.email(),
